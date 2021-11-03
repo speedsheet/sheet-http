@@ -1,0 +1,1486 @@
+# <#>HTTP<> SpeedSheet
+<b>Find what you need, faster.<>
+
+<b>HTTP Verbs, Codes, Ports<>
+
+What:
+
+•  To The Point
+•  Answers First
+•  Search Driven					<#># (use search bar above)<>
+•  HTTP Reference
+
+Why:
+
+•  Quick Answers to Quick Questions
+•  Less Googling, More Focus
+
+This is an interactive cheat sheet with answers to all things HTTP.
+It contains HTTP commands and their purposes, HTTP error codes, and HTTP definitions.
+
+
+# Feedback
+
+<!>Note:<> This is a work in progress.
+Feedback welcome. Tell us what you liked, didn't like, and suggested improvements.
+
+How?
+
+Enter 'feedback:' and press enter.
+@
+@ feedback:
+
+
+# HTTP Commands / Verbs
+
+<b><#>Note:<><>
+
+Create: Use either POST or PUT.
+- If name/id provided in url... 		use PUT
+- If the server creates name/id...	use POST
+
+
+## Summary
+
+GET			Retrieve
+POST		Submit Data / Add Sub-element
+PUT			Create / Replace (must be idempotent)
+DELETE		Delete
+HEAD
+
+
+
+## Command
+
+
+### GET
+
+Retrieve a web resource.
+
+Passing Parameters:
+
+<c><s>http://url/path<>?<v>param1<>=<v>value1<>&<v>param2<>=<v>value2...<><>
+
+Message Body:
+
+None
+
+
+
+Notes:
+
+Parameters must be escaped.
+Can be cached.
+Remain in browser history
+Can be bookmarked.
+Should never be used with sensitive data.
+GET has length restrictions (2048 characters).
+Should only be used for retrieving data.
+
+
+Example:
+
+<c>http://www.asite.com/login?user=test1&password=pass123<>
+
+
+
+### POST
+
+Submit data or add sub-element.
+
+
+Message Boddy	POST /test/demo_form.asp HTTP/1.1
+		Host: w3schools.com
+		name1=value1&name2=value2
+
+Notes	Requests are never cached.
+		Do not remain in browser history.
+		Cannot be bookmarked.
+		No length restrictions
+
+
+
+### PUT
+
+Create / replace item.
+Must be idempotent.
+
+Note:
+If name/id is provided in the url request, use this (PUT).
+If the server creates name/id, use POST.
+
+
+
+### DELETE
+
+Delete an item.
+
+
+
+### HEAD
+
+? Purpose.
+
+
+
+# HTTP Header
+
+
+
+### HTTP Header - Content Type
+
+Name:			<c>Content-type<>
+
+@ Content-type
+
+
+
+### HTTP Header - Security
+
+#### Prevent Cross Site Scripting
+
+<c>Content-Security-Policy: <v>policy<><>
+<c>Content-Security-Policy: <v>policy<>; <v>policy...<><>
+
+Name:			<c>Content-Security-Policy
+
+Value:			default-src 'self'; 	Allow original site content only.
+				default-src 'self' *.trusted.domain;	Allow original site and trusted site only.
+
+				image-src ...		Sets image policy.
+				media-src ...		Sets media policy
+				script-src ...		Sets script policy.
+
+@ Content-Security-Policy
+
+
+ 
+#### Cross Site Scripting - Protect
+
+<c>X-XSS-Protection: <v>value<><>
+
+Name:			<c>>X-XSS-Protection<>
+
+Values:			0				Do not react.
+				1				Sanitize any cross site scripting
+				1;mode=block	Block entire page if cross site scripting detected.
+
+@X-XSS-Protection
+
+
+
+
+# HTTP URL
+
+
+### HTTP URL - Escape
+
+Space		<c>%20<>
+$			<c>%24<>
+&			<c>%26<>
+`			<c>%60<>
+:			<c>%3A<>
+\<			<c>%3C<>
+>			<c>%3E<>
+[			<c>%5B<>
+]			<c>%5D<>
+{			<c>%7B<>
+}			<c>%7D<>
+“			<c>%22<>
++			<c>%2B<>
+\#			<c>%23<>
+%			<c>%25<>
+\@			<c>%40<>
+/			<c>%2F<>
+;			<c>%3B<>
+=			<c>%3D<>
+?			<c>%3F<>
+\\			<c>%5C<>
+^			<c>%5E<>
+|			<c>%7C<>
+~			<c>%7E<>
+‘			<c>%27<>
+,			<c>%2C<>
+
+
+
+# HTTP Response Codes
+
+
+@ Status
+
+
+
+## Summary
+
+1xx		Informational
+2xx		Success
+3xx		Redirect
+4xx		Client Error
+5xx		Server Error
+
+100		Continue
+101		Switching Protocols
+102		Processing
+
+200		OK
+201		Created
+202		Accepted
+203		Non-Authoritative Information
+204		No Content
+205		Reset content
+206		Partial Content
+207		Multi-Status
+208		Already Reported
+226		IM Used
+
+300		Multiple Choices
+301		Moved Permanently
+302		Not Found
+303		See Other
+304		Not Modified
+305		Use Proxy
+306		Switch Proxy
+307		Temporary Redirect
+308		Permanent Redirect
+
+400		Bad Request
+401		Unauthorized
+402		Payment Required
+403		Forbidden
+404		Not Found
+405		Method Not Allowed
+406		Not Acceptable
+407		Proxy Authentication Required
+408		Request Timeout
+409		Conflict
+410		Gone
+411		Length Required
+412		Precondition Failed
+413		Request Entity Too Large
+414		Request URL Too Long
+415		Unsupported media Type
+416		Requested Range Not Satisfiable
+417		Expectation Failed
+418		I'm A Teapot
+420		Enhance Your Calm (Twitter)
+421		(??? Not Trusted ???)
+422		Unprocessable Entity
+423		Locked
+424		Failed Dependency
+...
+
+500		Server Error
+501		Not Implemented
+502		Bad Gateway
+503		Server Unavailable
+504		Gateway Timeout
+505		Http Version Not Supported
+506		Variant Also Negotiates
+507		Insufficient Storage
+508		Loop Detected
+509		Bandwidth Limit Exceeded
+510		Not Extended
+511		Network Authentication Required
+550		Permission Denied
+551		Option Not Supported
+598		Network Read Timeout Error (Unknown)
+599		Network Connection Timeout Error (Unknown)
+
+
+## Details
+
+
+
+### HTTP Code - Informative (1xx)
+
+
+
+#### HTTP Code - 100 / Continue
+Continue
+
+
+
+#### HTTP Code - 101 / Switching Protocols
+Switching Protocols
+
+
+
+#### HTTP Code - 102 / Processing
+Processing
+
+
+
+### HTTP Code - Success (2xx)
+
+
+
+#### HTTP Code - 200 / OK
+OK
+
+
+
+#### HTTP Code - 201 / Created
+Created
+
+
+
+#### HTTP Code - 202 / Accepted
+Accepted
+
+
+
+#### HTTP Code - 203 / Non-Authoritative Information
+Non-Authoritative Information
+
+
+
+#### HTTP Code - 204 / No Content
+No Content
+
+
+
+#### HTTP Code - 205 / Reset content
+Reset content
+
+
+
+#### HTTP Code - 206 / Partial Content
+Partial Content
+
+
+
+#### HTTP Code - 207 / Multi-Status
+Multi-Status
+
+
+
+#### HTTP Code - 208 / Already Reported
+Already Reported
+
+
+
+#### HTTP Code - 226 / IM Used
+IM Used
+
+
+
+### HTTP Code - Redirect (3xx)
+
+
+
+#### HTTP Code - 300 / Multiple Choices
+Multiple Choices
+
+
+
+#### HTTP Code - 301 / Moved Permanently
+Moved Permanently
+
+
+
+#### HTTP Code - 302 / Not Found
+Not Found
+
+
+
+#### HTTP Code - 303 / See Other
+See Other
+
+
+
+#### HTTP Code - 304 / Not Modified
+Not Modified
+
+
+
+#### HTTP Code - 305 / Use Proxy
+Use Proxy
+
+
+
+#### HTTP Code - 306 / Switch Proxy
+Switch Proxy
+
+
+
+#### HTTP Code - 307 / Temporary Redirect
+Temporary Redirect
+
+
+
+#### HTTP Code - 308 / Permanent Redirect
+Permanent Redirect
+
+
+
+### HTTP Code - Client Error (4xx)
+
+
+
+#### HTTP Code - 400 / Bad Request
+Bad Request
+
+
+
+#### HTTP Code - 401 / Unauthorized
+Unauthorized
+
+
+
+#### HTTP Code - 402 / Payment Required
+Payment Required
+
+
+
+#### HTTP Code - 403 / Forbidden
+Forbidden
+
+
+
+#### HTTP Code - 404 / Not Found
+Not Found
+
+
+
+#### HTTP Code - 405 / Method Not Allowed
+Method Not Allowed
+
+
+
+#### HTTP Code - 406 / Not Acceptable
+Not Acceptable
+
+
+
+#### HTTP Code - 407 / Proxy Authentication Required
+Proxy Authentication Required
+
+
+
+#### HTTP Code - 408 / Request Timeout
+Request Timeout
+
+
+
+#### HTTP Code - 409 / Conflict
+Conflict
+
+
+
+#### HTTP Code - 410 / Gone
+Gone
+
+
+
+#### HTTP Code - 411 / Length Required
+Length Required
+
+
+
+#### HTTP Code - 412 / Precondition Failed
+Precondition Failed
+
+
+
+#### HTTP Code - 413 / Request Entity Too Large
+Request Entity Too Large
+
+
+
+#### HTTP Code - 414 / Request URL Too Long
+Request URL Too Long
+
+
+
+#### HTTP Code - 415 / Unsupported media Type
+Unsupported media Type
+
+
+
+#### HTTP Code - 416 / Requested Range Not Satisfiable
+Requested Range Not Satisfiable
+
+
+
+#### HTTP Code - 417 / Expectation Failed
+Expectation Failed
+
+
+
+#### HTTP Code - 418 / I'm A Teapot
+I'm A Teapot
+
+
+
+#### HTTP Code - 420 / Enhance Your Calm (Twitter)
+Enhance Your Calm (Twitter)
+
+
+
+#### HTTP Code - 421 / (??? Not Trusted ???)
+(??? Not Trusted ???)
+
+
+
+#### HTTP Code - 422 / Unprocessable Entity
+Unprocessable Entity
+
+
+
+#### HTTP Code - 423 / Locked
+Locked
+
+
+
+#### HTTP Code - 424 / Failed Dependency
+Failed Dependency
+
+
+
+### HTTP Code - Server Error (5xx)
+
+
+
+#### HTTP Code - 500 / Server Error
+Server Error
+
+
+
+#### HTTP Code - 501 / Not Implemented
+Not Implemented
+
+
+
+#### HTTP Code - 502 / Bad Gateway
+Bad Gateway
+
+
+
+#### HTTP Code - 503 / Server Unavailable
+Server Unavailable
+
+
+
+#### HTTP Code - 504 / Gateway Timeout
+Gateway Timeout
+
+
+
+#### HTTP Code - 505 / HTTP Version Not Supported
+HTTP Version Not Supported
+
+
+
+#### HTTP Code - 506 / Variant Also Negotiates
+Variant Also Negotiates
+
+
+
+#### HTTP Code - 507 / Insufficient Storage
+Insufficient Storage
+
+
+
+#### HTTP Code - 508 / Loop Detected
+Loop Detected
+
+
+
+#### HTTP Code - 509 / Bandwidth Limit Exceeded
+Bandwidth Limit Exceeded
+
+
+
+#### HTTP Code - 510 / Not Extended
+Not Extended
+
+
+
+#### HTTP Code - 511 / Network Authentication Required
+Network Authentication Required
+
+
+
+#### HTTP Code - 550 / Permission Denied
+Permission Denied
+
+
+
+#### HTTP Code - 551 / Option Not Supported
+Option Not Supported
+
+
+
+#### HTTP Code - 598 / Network Read Timeout Error (Unknown)
+Network Read Timeout Error (Unknown)
+
+
+
+#### HTTP Code - 599 / Network Connection Timeout Error (Unknown)
+Network Connection Timeout Error (Unknown)
+
+
+
+# HTTP Connection
+
+
+
+### HTTP - Create / Client Hello
+
+Set request as handshake.		(0x 16)
+Use TLS encryption.			(0x 0301)
+
+
+
+### HTTP - Cookies
+
+Http Header Item	Auth-cookie
+
+Step 1:	Client -> User login
+
+		the user logs in. He/she provides their username/password. This is posted as a HTTP request to the server.
+
+Step 2:	Server -> Validates The Login
+
+		The server looks up the username in the database, hashes the supplied login password, and compares it to the previously hashed password in the database. If it doesn't check out, the server may deny the user access by sending a 401 status code and ending the request.
+
+Step 3:	Server -> Generates The Access Token
+
+		If everything checks out, the server creates an access token, which uniquely identifies the user's session. The server will:
+
+   		Store the access token in the database associated with the user.
+   		Attach the access token to a response cookie to be returned to the client. Be sure to set an expiration date/time to limit the user's session.
+
+		From now on the cookies will be attached to every request (and response) made between the client and server.
+
+Step 4:	Client -> Make Page requests
+
+		The client is now logged in. Every time the client makes a request for a page that requires authorization (i.e. they need to be logged in), the server obtains the access token from the cookie and checks it against the one in the database associated with that user. If it checks out, access is granted.
+
+Step 5:	Be sure to clear the cookies upon logout!
+
+
+
+# MIME
+
+Multipurpose Internet Mail Extensions
+
+
+Structure:	<c><v>type<>/<v>subtype<><>
+			<c><v>type<>/<v>subtype<>;<v>parameter<>=<v>value<><>
+
+
+
+## Types - Summary
+
+
+
+### Types - By Type
+
+<b>Type				Content-Type<>
+
+css					text/css
+form				application/x-www-form-urlencoded
+gif					image/gif
+html				text/html
+javascript			application/javascript
+jpeg				image/jpeg
+json					application/json
+png					image/png
+text					application/text
+text					text/plain
+xml					application/xml
+
+
+
+### Types - By Content-Type
+
+<b>Content-Type			Type<>
+
+application/javascript		javascript
+application/json			json
+application/text			text
+application/x-www-form-urlencoded
+						form
+application/xml			xml
+image/gif				gif
+image/jpeg				jpeg
+image/png				png
+text/css					css
+text/html					html
+text/plain					text
+
+
+
+## Types - Details
+
+
+
+### MIME Type - application
+
+Type:		application
+
+
+
+#### MIME Type - Application / JavaScript
+
+Type:		application/javascript
+
+
+
+#### MIME Type - Application / Text
+
+Type:		application/text
+
+
+
+### MIME Type - audio
+
+Type:		audio
+
+
+
+### MIME Type - example
+
+Type:		example
+
+
+
+### MIME Type - font
+
+Type:		font
+
+
+
+### MIME Type - image
+
+Type:		image
+
+
+
+### MIME Type - message
+
+Type:		message
+
+A message that contains other messages.
+
+
+
+### MIME Type - model
+
+Type:		model
+
+Data for a model, eg 3d model.
+
+
+
+### MIME Type - multipart
+
+Type:		multipart
+
+Data that has multiple parts. Each part can be a different MIME type.
+
+
+
+#### MIME Type Multipart - HTML
+
+<c>Content-Type: multipart/form-data; boundary=<v>boundary-text<><>
+
+Sections separated by <c>--<v>boundary-text<><>
+End indicated by <c>--<v>boundary-text<>--<>
+
+<b>Example:<>
+<c>Content-Type: multipart/form-data; boundary=<v>boundary-1<>
+
+--<v>boundary-1<>
+
+First section
+
+--<v>boundary-1<>
+
+Next section
+
+--<v>boundary-1<>
+
+Last section
+
+--<v>boundary-1<>--<>
+
+
+
+### MIME Type - text
+
+Text and human readable content.
+
+Type:		text
+
+
+
+### MIME Type - video
+
+Type:		video
+
+
+
+# Protocols
+
+
+
+## Summary
+
+FILE
+HTTP
+HTTPS						RFC-2818
+TEL
+
+
+
+## Details
+
+
+
+### Protocol - Email
+
+Protocol:			<c>mailto:<>
+@
+@ mail, mailto:
+
+
+
+### Protocol - File
+
+Protocol:			<c>file://<>
+@
+@ file:, file://
+
+
+
+### Protocol - HTTP
+
+Protocol:			<c>http://<>
+
+Port:			80 <#>(Default)<>
+@
+@ http://
+
+
+
+### Protocol - HTTPS
+
+Protocol:			<c>https://<>
+
+Standard:		RFC-2818
+Port:			443 <#>(Default)<>
+
+HTTP Over TLS
+@
+@ https://
+
+
+
+### Protocol - Telephone
+
+Protocol:			<c>tel:<>
+@
+@ phone, tel:
+
+
+
+# Schemes
+
+<cb><v>scheme<>:website.com/<v>...<><>
+
+<c><v>scheme<><>:	<c>data<>
+		<c>file<>
+		<c>ftp<>
+		<c>http<>
+		<c>https<>
+		<c>irc<>
+		<c>mailto<>
+		<c>tel<>
+
+
+
+# Ports
+
+
+
+## Summarys
+
+
+
+## Ports - By Port Number
+
+22		SSH
+21		FTP
+22		SFTP
+23		Telnet
+25		SMTP (Email)
+53		DNS
+80		HTTP
+110		POP3 (Email)
+119		NNTP
+143		IMAP (Email)
+161		SNMP
+389		LDAP
+443		HTTPS
+465		SMTPS (Email) (SSL)
+587		Email (Outgoing, TLS)
+993		IMAP (SSL) (Email)
+995		POP3 (SSL/TSL) (Email)
+1414	WebSphere MQ
+1433	Microsoft Sql Server DB
+1521	Oracle DB
+3306	MySql DB
+3307	MySql DB (SSL)
+3389	RDP / Microsoft Remote Desktop
+4200	HTTP (Angular)
+5432	PostgreSql Db
+5672	AMQP (Message Queue)
+5984	Blockchain
+6379	Redis
+6984	Blockchain
+7000	Cassandra - Internode communication (not used if TLS enabled)
+7001	Cassandra - TLS Internode communication (used if TLS enabled)
+7077	Spark
+7199	Cassandra - JMX
+8080	HTTP (Java Servlet, Tomcat, Development)
+		PyPI Server
+8161	ActiveMQ (Console)
+8443	HTTPS (Tomcat, Development)
+9000	HTTP (Java Play Server, Jetty, Development)
+9042	Cassandra - CQL native transport port
+9160	Cassandra - Thrift client API
+27017	Mongo DB - Default Port
+27018	Mongo DB - Default Port - Clustered (shardsvr)
+27019	Mongo DB - Default Port - Clustered (configsvr)
+32400	Plex Server
+61616	ActiveMQ - Message Port
+
+1024 - 49151	Registered Ports
+49152 - 65535	Dynamic / Private Ports
+
+
+
+## Ports - By Use
+
+Active MQ					8161, 61616, 5672
+AMQP						5672
+Angular (HTTP)				4200
+Apache Spark					7077
+Blockchain					5984, 6984
+Cassandra					7000, 7001, 7199, 9160, 9042
+DB - Cassandra				7000, 7001, 7199, 9160, 9042
+DB - Microsoft Sql Server		1433
+DB - MongoDB				27017
+DB - MySql					3307
+DB - Oracle					1521
+DB - PostgreSql				5432
+DNS						53
+Email - IMAP					143
+Email - IMAP (SSL)				993
+Email - POP3					110
+Email - POP3 (SSL/TSL)		995
+Email - SMTP					25
+Email - SMTPS				465
+FTP							20
+							21
+HTTP						80
+							8080	(Development only)
+							9000	(Development only)
+HTTPS						443
+LDAP						389
+Microsoft Remote Desktop		3389
+Microsoft Sql Server Database	1433
+Mongo DB - Default Port			27017
+Mongo DB - Clustered (shardsvr)	27018
+Mongo DB - Clustered (configsvr)	27019
+MySql						3306
+MySql (SSL)					3307
+NNTP						119
+Oracle DB					1521
+Play Framework (HTTP)			9000
+Plex Server					32400
+PostgreSQL					5432
+PyPI Server					8080
+RDP (Microsoft)				3389
+Redis						6379
+SFTP						22
+SNMP						161
+Spark						7077
+SSH							22
+Telnet						25
+Tomcat (HTTPS)				8443
+WebSphere MQ				1414
+Windows Remote Desktop		3389
+
+
+
+## Details
+
+
+
+#### Port -  22, SSH
+
+Port:			22
+Type:			SSH
+
+
+
+#### Port -  21, FTP
+
+Port:			21
+Type:			FTP
+
+
+
+#### Port -  22, SFTP
+
+Port:			22
+Type:			SFTP
+
+
+
+#### Port -  23, Telnet
+
+Port:			23
+Type:			Telnet
+
+
+
+#### Port -  25, SMTP (Email)
+
+Port:			25
+Type:			SMTP (Email)
+
+
+
+#### Port -  53, DNS
+
+Port:			53
+Type:			DNS
+
+
+
+#### Port -  80, HTTP
+
+Port:			80
+Type:			HTTP
+
+
+
+#### Port -  110, POP3 (Email)
+
+Port:			110
+Type:			POP3 (Email)
+
+
+
+#### Port -  119, NNTP
+
+Port:			119
+Type:			NNTP
+
+
+
+#### Port -  143, IMAP (Email)
+
+Port:			143
+Type:			IMAP (Email)
+
+
+
+#### Port -  161, SNMP
+
+Port:			161
+Type:			SNMP
+
+
+
+#### Port -  389, LDAP
+
+Port:			389
+Type:			LDAP
+
+
+
+#### Port -  443, HTTPS
+
+Port:			443
+Type:			HTTPS
+
+
+
+#### Port -  465, SMTPS (Email) (SSL)
+
+Port:			465
+Type:			SMTPS (Email) (SSL)
+
+
+
+#### Port -  587, Email (Outgoing, TLS)
+
+Port:			587
+Type:			Email (Outgoing, TLS)
+
+
+
+#### Port -  993, IMAP (SSL) (Email)
+
+Port:			993
+Type:			IMAP (SSL) (Email)
+
+
+
+#### Port -  995, POP3 (SSL/TSL) (Email)
+
+Port:			995
+Type:			POP3 (SSL/TSL) (Email)
+
+
+
+#### Port -  1414, WebSphere MQ
+
+Port:			1414
+Type:			WebSphere MQ
+
+
+
+#### Port -  1433, Microsoft Sql Server DB
+
+Port:			1433
+Type:			Microsoft Sql Server DB
+
+
+
+#### Port -  1521, Oracle DB
+
+Port:			1521
+Type:			Oracle DB
+
+
+
+#### Port -  3306, MySql DB
+
+Port:			3306
+Type:			MySql DB
+
+
+
+#### Port -  3307, MySql DB (SSL)
+
+Port:			3307
+Type:			MySql DB (SSL)
+
+
+
+#### Port -  3389, RDP / Microsoft Remote Desktop
+
+Port:			3389
+Type:			RDP / Microsoft Remote Desktop
+
+
+
+#### Port -  4200, HTTP (Angular)
+
+Port:			4200
+Type:			HTTP (Angular)
+
+
+
+#### Port -  5432, PostgreSql Db
+
+Port:			5432
+Type:			PostgreSql Db
+
+
+
+#### Port -  5672, AMQP (Message Queue)
+
+Port:			5672
+Type:			AMQP (Message Queue)
+
+
+
+#### Port -  5984, Blockchain
+
+Port:			5984
+Type:			Blockchain
+
+
+
+#### Port -  6379, Redis
+
+Port:			6379
+Type:			Redis
+
+
+
+#### Port -  6984, Blockchain
+
+Port:			6984
+Type:			Blockchain
+
+
+
+#### Port -  7000, Cassandra - Internode communication (not used if TLS enabled)
+
+Port:			7000
+Type:			Cassandra - Internode communication (not used if TLS enabled)
+
+
+
+#### Port -  7001, Cassandra - TLS Internode communication (used if TLS enabled)
+
+Port:			7001
+Type:			Cassandra - TLS Internode communication (used if TLS enabled)
+
+
+
+#### Port -  7077, Spark
+
+Port:			7077
+Type:			Spark
+
+
+
+#### Port -  7199, Cassandra - JMX
+
+Port:			7199
+Type:			Cassandra - JMX
+
+
+
+#### Port -  8080, HTTP
+
+Port:			8080
+Type:			HTTP
+
+(Java Servlet, Tomcat, Development, PYPI Server)
+
+@ Java Servlet, Tomcat, Development, PyPI Server
+
+
+
+#### Port -  8161, ActiveMQ (Console)
+
+Port:			8161
+Type:			ActiveMQ (Console)
+
+
+
+#### Port -  8443
+
+Port:			8443
+Type:			HTTPS for Development, Tomcat
+
+
+
+#### Port -  9000, HTTP (Java Play Server, Jetty, Development)
+
+Port:			9000
+Type:			HTTP (Java Play Server, Jetty, Development)
+
+
+
+#### Port -  9042, Cassandra - CQL native transport port
+
+Port:			9042
+Type:			Cassandra - CQL native transport port
+
+
+
+#### Port -  9160, Cassandra - Thrift client API
+
+Port:			9160
+Type:			Cassandra - Thrift client API
+
+
+
+#### Port -  27017, Mongo DB - Default Port
+
+Port:			27017
+Type:			Mongo DB - Default Port
+
+
+
+#### Port -  27018, Mongo DB - Default Port - Clustered (shardsvr)
+
+Port:			27018
+Type:			Mongo DB - Default Port - Clustered (shardsvr)
+
+
+
+#### Port -  27019, Mongo DB - Default Port - Clustered (configsvr)
+
+Port:			27019
+Type:			Mongo DB - Default Port - Clustered (configsvr)
+
+
+
+#### Port -  32400, Plex Server
+
+Port:			32400
+Type:			Plex Server
+
+
+
+#### Port -  61616, ActiveMQ - Message Port
+
+Port:			61616
+Type:			ActiveMQ - Message Port
+
+
+
+# How To
+
+
+
+## URL - Timeout
+
+Use:
+
+<cb>https://www.google.com:81<>
+
+This will eventually timeout.
+Use this for testing.
+@
+@ test call
+
+
+
+# Acronyms
+
+
+
+#### DNS
+Domain Name System
+
+
+#### HTTP
+Hypertext Transport Protocol
+
+
+#### SNI
+Server Name Indication
+
+
+#### SSL
+Secure Socket Layer
+
+
+#### TLD
+Top Level Domain
+
+
+#### TLS
+Transport Layer Security
+
+
+#### URI
+Universal Resource Identifier
+
+
+#### URL
+Uniform Resource Locator
+
+
+
+# Terms
+
+@ Glossary, Definition
+
+
+#### Cookie
+Used to track a user's session and whether they are authenticated. The server sends a unique cookie to the browser. The browser then returns that cookie back to the server with every request. The server looks the cookie value up against the expected value and matches the browser session to the server side data.
+
+
+
+#### Cookie - Signed
+Added to the http response by the server.
+Also Called: Encrypted Cookie
+
+
+
+#### Domain
+A text name that identifies a server on the internet.
+Parts: subdomain.domain.top_level_domain
+
+
+
+#### Domain Name System (DNS)
+This is a hierarchical decentralized naming system for computers, services, or any resource connected to the Internet or a private network. It associates various information with domain names assigned to each of the participating entities.
+
+End Point
+The entry point to a web service. The base url of a web service. A web service may have different end points for different protocols.
+
+
+
+#### Gorilla
+Here is a gorilla  🦍
+
+
+
+#### GraphQL (Graph Query Language)
+An open-source data query language.
+
+
+
+#### HTTP Header
+These are name value fields sent in HTTP requests and responses. They carry information about the client browser, the requested page, the server and more. They reside right after the request or response (after line 1) and end with a double new line.
+
+
+
+#### HTTP Verb
+An action to be performed on a URI. Get, Post, Put, etc.
+
+
+
+#### Internet Assigned Numbers Authority (IANA)
+Organization tha coordinates DNS Roots, IP addressing and internet related protocols.
+
+
+
+#### Multipurpose Internet Mail Extensions (MIME)
+Standard that identifies the format of some content whether it is a file, document or section of a piece of data.
+
+
+
+#### Ping
+Uses ICMP (not TCP or UDP). And has no port number assigned to it.
+
+
+
+#### Secure Socket Layer (SSL)
+The old security layer in http. Very rare to see explicit SSL layer in http today. SSL was rebranded TLS and that is what is typically used.
+
+
+
+#### Server Name Indication (SNI)
+Extension to Transport Layer Security (TLS) where the client sends the hostname so the server can return the correct SSL certificate information.
+
+This allows the server to support multiple secure domains from one ip address.
+
+Wiki:
+<l>https://en.wikipedia.org/wiki/Server_Name_Indication<>
+
+
+
+#### Transport Layer Security (TLS)
+The security layer in most http calls. It is SSL rebranded under a new name.
+
+
+
+#### URI (Universal Resource Identifier)
+A character string that identifies a resource.
+
+
+
+#### URL (Uniform Resource Locator)
+A type of URI that identifies a resource by its location or by the means used to acce it. Usually identifies an existing resource on the Internet.
+Components: Scheme, Host, Port, Path, Query String
+<c><v>protocol<>://<v>host<>:<v>port<>/<v>path<>?<v>query<><>
+
+
+
