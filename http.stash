@@ -1354,35 +1354,45 @@ Use this for testing.
 
 
 
-#### DNS
+### CIDR
+Classless Inter-Domain Routing
+
+Example:
+
+<cb>194.31.227.0/24<>
+@
+@ ip address
+
+
+### DNS
 Domain Name System
 
 
-#### HTTP
+### HTTP
 Hypertext Transport Protocol
 
 
-#### SNI
+### SNI
 Server Name Indication
 
 
-#### SSL
+### SSL
 Secure Socket Layer
 
 
-#### TLD
+### TLD
 Top Level Domain
 
 
-#### TLS
+### TLS
 Transport Layer Security
 
 
-#### URI
+### URI
 Universal Resource Identifier
 
 
-#### URL
+### URL
 Uniform Resource Locator
 
 
@@ -1392,24 +1402,24 @@ Uniform Resource Locator
 @ Glossary, Definition
 
 
-#### Cookie
+### Cookie
 Used to track a user's session and whether they are authenticated. The server sends a unique cookie to the browser. The browser then returns that cookie back to the server with every request. The server looks the cookie value up against the expected value and matches the browser session to the server side data.
 
 
 
-#### Cookie - Signed
+### Cookie - Signed
 Added to the http response by the server.
 Also Called: Encrypted Cookie
 
 
 
-#### Domain
+### Domain
 A text name that identifies a server on the internet.
 Parts: subdomain.domain.top_level_domain
 
 
 
-#### Domain Name System (DNS)
+### Domain Name System (DNS)
 This is a hierarchical decentralized naming system for computers, services, or any resource connected to the Internet or a private network. It associates various information with domain names assigned to each of the participating entities.
 
 End Point
@@ -1417,47 +1427,47 @@ The entry point to a web service. The base url of a web service. A web service m
 
 
 
-#### Gorilla
+### Gorilla
 Here is a gorilla  🦍
 
 
 
-#### GraphQL (Graph Query Language)
+### GraphQL (Graph Query Language)
 An open-source data query language.
 
 
 
-#### HTTP Header
+### HTTP Header
 These are name value fields sent in HTTP requests and responses. They carry information about the client browser, the requested page, the server and more. They reside right after the request or response (after line 1) and end with a double new line.
 
 
 
-#### HTTP Verb
+### HTTP Verb
 An action to be performed on a URI. Get, Post, Put, etc.
 
 
 
-#### Internet Assigned Numbers Authority (IANA)
+### Internet Assigned Numbers Authority (IANA)
 Organization tha coordinates DNS Roots, IP addressing and internet related protocols.
 
 
 
-#### Multipurpose Internet Mail Extensions (MIME)
+### Multipurpose Internet Mail Extensions (MIME)
 Standard that identifies the format of some content whether it is a file, document or section of a piece of data.
 
 
 
-#### Ping
+### Ping
 Uses ICMP (not TCP or UDP). And has no port number assigned to it.
 
 
 
-#### Secure Socket Layer (SSL)
+### Secure Socket Layer (SSL)
 The old security layer in http. Very rare to see explicit SSL layer in http today. SSL was rebranded TLS and that is what is typically used.
 
 
 
-#### Server Name Indication (SNI)
+### Server Name Indication (SNI)
 Extension to Transport Layer Security (TLS) where the client sends the hostname so the server can return the correct SSL certificate information.
 
 This allows the server to support multiple secure domains from one ip address.
@@ -1467,17 +1477,17 @@ Wiki:
 
 
 
-#### Transport Layer Security (TLS)
+### Transport Layer Security (TLS)
 The security layer in most http calls. It is SSL rebranded under a new name.
 
 
 
-#### URI (Universal Resource Identifier)
+### URI (Universal Resource Identifier)
 A character string that identifies a resource.
 
 
 
-#### URL (Uniform Resource Locator)
+### URL (Uniform Resource Locator)
 A type of URI that identifies a resource by its location or by the means used to acce it. Usually identifies an existing resource on the Internet.
 Components: Scheme, Host, Port, Path, Query String
 <c><v>protocol<>://<v>host<>:<v>port<>/<v>path<>?<v>query<><>
