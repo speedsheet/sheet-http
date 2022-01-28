@@ -1,38 +1,18 @@
 # <#>HTTP<> SpeedSheet
 <b>Find what you need, faster.<>
 
-<b>HTTP Verbs, Codes, Ports, and much more.<>
+This is an interactive cheat sheet with answers to all things HTTP.
+It contains HTTP commands, HTTP error codes, ports by protocol, and more.
 
 
 <image "http-example.webp">
 
 
-What:
+Follow us on Twitter:
 
-•  To The Point
-•  Answers First
-•  Search Driven					<#># (use search bar above)<>
-•  HTTP Reference
-
-Why:
-
-•  Quick Answers to Quick Questions
-•  Less Googling, More Focus
-
-This is an interactive cheat sheet with answers to all things HTTP.
-It contains HTTP commands and their purposes, HTTP error codes, and HTTP definitions.
-
-
-# Feedback
-
-<!>Note:<> This is a work in progress.
-Feedback welcome. Tell us what you liked, didn't like, and suggested improvements.
-
-How?
-
-Enter 'feedback:' and press enter.
+<card><l https://twitter.com/_speedsheet>@_speedsheet<><>
 @
-@ feedback:
+@ twitter
 
 
 # HTTP Commands / Verbs
@@ -548,6 +528,8 @@ Failed Dependency
 
 #### HTTP Code - 500 / Server Error
 Server Error
+@
+@ internal
 
 
 
@@ -827,15 +809,17 @@ Type:		video
 
 
 
-# Protocols
+# HTTP Protocols
 
 
 
 ## Summary
 
 FILE
+FTP
 HTTP
 HTTPS						RFC-2818
+MAILTO
 TEL
 
 
@@ -857,6 +841,14 @@ Protocol:			<c>mailto:<>
 Protocol:			<c>file://<>
 @
 @ file:, file://
+
+
+
+### Protocol - FTP
+
+Protocol:			<c>ftp://<>
+@
+@ ftp:, ftp://, file transfer protocol
 
 
 
@@ -910,114 +902,114 @@ Protocol:			<c>tel:<>
 
 
 
-## Summarys
+## Summary
 
 
 
-## Ports - By Port Number
+### Ports - By Port Number
 
-22		SSH
-21		FTP
-22		SFTP
-23		Telnet
-25		SMTP (Email)
-53		DNS
-80		HTTP
-110		POP3 (Email)
-119		NNTP
-143		IMAP (Email)
-161		SNMP
-389		LDAP
-443		HTTPS
-465		SMTPS (Email) (SSL)
-587		Email (Outgoing, TLS)
-993		IMAP (SSL) (Email)
-995		POP3 (SSL/TSL) (Email)
-1414	WebSphere MQ
-1433	Microsoft Sql Server DB
-1521	Oracle DB
-3306	MySql DB
-3307	MySql DB (SSL)
-3389	RDP / Microsoft Remote Desktop
-4200	HTTP (Angular)
-5432	PostgreSql Db
-5672	AMQP (Message Queue)
-5984	Blockchain
-6379	Redis
-6984	Blockchain
-7000	Cassandra - Internode communication (not used if TLS enabled)
-7001	Cassandra - TLS Internode communication (used if TLS enabled)
-7077	Spark
-7199	Cassandra - JMX
-8080	HTTP (Java Servlet, Tomcat, Development)
-		PyPI Server
-8161	ActiveMQ (Console)
-8443	HTTPS (Tomcat, Development)
-9000	HTTP (Java Play Server, Jetty, Development)
-9042	Cassandra - CQL native transport port
-9160	Cassandra - Thrift client API
-27017	Mongo DB - Default Port
-27018	Mongo DB - Default Port - Clustered (shardsvr)
-27019	Mongo DB - Default Port - Clustered (configsvr)
-32400	Plex Server
-61616	ActiveMQ - Message Port
+<table><col>22<><col>SSH<>
+<col>21<><col>FTP<>
+<col>22<><col>SFTP<>
+<col>23<><col>Telnet<>
+<col>25<><col>SMTP (Email)<>
+<col>53<><col>DNS<>
+<col>80<><col>HTTP<>
+<col>110<><col>POP3 (Email)<>
+<col>119<><col>NNTP<>
+<col>143<><col>IMAP (Email)<>
+<col>161<><col>SNMP<>
+<col>389<><col>LDAP<>
+<col>443<><col>HTTPS<>
+<col>465<><col>SMTPS (Email) (SSL)<>
+<col>587<><col>Email (Outgoing, TLS)<>
+<col>993<><col>IMAP (SSL) (Email)<>
+<col>995<><col>POP3 (SSL/TSL) (Email)<>
+<col>1414<><col>WebSphere MQ<>
+<col>1433<><col>Microsoft Sql Server DB<>
+<col>1521<><col>Oracle DB<>
+<col>3306<><col>MySql DB<>
+<col>3307<><col>MySql DB (SSL)<>
+<col>3389<><col>RDP / Microsoft Remote Desktop<>
+<col>4200<><col>HTTP (Angular)<>
+<col>5432<><col>PostgreSql Db<>
+<col>5672<><col>AMQP (Message Queue)<>
+<col>5984<><col>Blockchain<>
+<col>6379<><col>Redis<>
+<col>6984<><col>Blockchain<>
+<col>7000<><col>Cassandra - Internode communication (not used if TLS enabled)<>
+<col>7001<><col>Cassandra - TLS Internode communication (used if TLS enabled)<>
+<col>7077<><col>Spark<>
+<col>7199<><col>Cassandra - JMX<>
+<col>8080<><col>HTTP (Java Servlet, Tomcat, Development)
+PyPI Server<>
+<col>8161<><col>ActiveMQ (Console)<>
+<col>8443<><col>HTTPS (Tomcat, Development)<>
+<col>9000<><col>HTTP (Java Play Server, Jetty, Development)<>
+<col>9042<><col>Cassandra - CQL native transport port<>
+<col>9160<><col>Cassandra - Thrift client API<>
+<col>27017<><col>Mongo DB - Default Port<>
+<col>27018<><col>Mongo DB - Default Port - Clustered (shardsvr)<>
+<col>27019<><col>Mongo DB - Default Port - Clustered (configsvr)<>
+<col>32400<><col>Plex Server<>
+<col>61616<><col>ActiveMQ - Message Port<>
+<col> <>
+<col>1024 - 49151<><col>Registered Ports<>
+<col>49152 - 65535<><col>Dynamic / Private Ports<><>
 
-1024 - 49151	Registered Ports
-49152 - 65535	Dynamic / Private Ports
 
 
+### Ports - By Use
 
-## Ports - By Use
-
-Active MQ					8161, 61616, 5672
-AMQP						5672
-Angular (HTTP)				4200
-Apache Spark					7077
-Blockchain					5984, 6984
-Cassandra					7000, 7001, 7199, 9160, 9042
-DB - Cassandra				7000, 7001, 7199, 9160, 9042
-DB - Microsoft Sql Server		1433
-DB - MongoDB				27017
-DB - MySql					3307
-DB - Oracle					1521
-DB - PostgreSql				5432
-DNS						53
-Email - IMAP					143
-Email - IMAP (SSL)				993
-Email - POP3					110
-Email - POP3 (SSL/TSL)		995
-Email - SMTP					25
-Email - SMTPS				465
-FTP							20
-							21
-HTTP						80
-							8080	(Development only)
-							9000	(Development only)
-HTTPS						443
-LDAP						389
-Microsoft Remote Desktop		3389
-Microsoft Sql Server Database	1433
-Mongo DB - Default Port			27017
-Mongo DB - Clustered (shardsvr)	27018
-Mongo DB - Clustered (configsvr)	27019
-MySql						3306
-MySql (SSL)					3307
-NNTP						119
-Oracle DB					1521
-Play Framework (HTTP)			9000
-Plex Server					32400
-PostgreSQL					5432
-PyPI Server					8080
-RDP (Microsoft)				3389
-Redis						6379
-SFTP						22
-SNMP						161
-Spark						7077
-SSH							22
-Telnet						25
-Tomcat (HTTPS)				8443
-WebSphere MQ				1414
-Windows Remote Desktop		3389
+<table><col>Active MQ<><col>8161, 61616, 5672<>
+<col>AMQP<><col>5672<>
+<col>Angular (HTTP)<><col>4200<>
+<col>Apache Spark<><col>7077<>
+<col>Blockchain<><col>5984, 6984<>
+<col>Cassandra<><col>7000, 7001, 7199, 9160, 9042<>
+<col>DB - Cassandra<><col>7000, 7001, 7199, 9160, 9042<>
+<col>DB - Microsoft Sql Server<><col>1433<>
+<col>DB - MongoDB<><col>27017<>
+<col>DB - MySql<><col>3307<>
+<col>DB - Oracle<><col>1521<>
+<col>DB - PostgreSql<><col>5432<>
+<col>DNS<><col>53<>
+<col>Email - IMAP<><col>143<>
+<col>Email - IMAP (SSL)<><col>993<>
+<col>Email - POP3<><col>110<>
+<col>Email - POP3 (SSL/TSL)<><col>995<>
+<col>Email - SMTP<><col>25<>
+<col>Email - SMTPS<><col>465<>
+<col>FTP<><col>20
+21<>
+<col>HTTP<><col>80
+8080	(Development only)
+9000	(Development only)<>
+<col>HTTPS<><col>443<>
+<col>LDAP<><col>389<>
+<col>Microsoft Remote Desktop<><col>3389<>
+<col>Microsoft Sql Server Database<><col>1433<>
+<col>Mongo DB - Default Port<><col>27017<>
+<col>Mongo DB - Clustered (shardsvr)<><col>27018<>
+<col>Mongo DB - Clustered (configsvr)<><col>27019<>
+<col>MySql<><col>3306<>
+<col>MySql (SSL)<><col>3307<>
+<col>NNTP<><col>119<>
+<col>Oracle DB<><col>1521<>
+<col>Play Framework (HTTP)<><col>9000<>
+<col>Plex Server<><col>32400<>
+<col>PostgreSQL<><col>5432<>
+<col>PyPI Server<><col>8080<>
+<col>RDP (Microsoft)<><col>3389<>
+<col>Redis<><col>6379<>
+<col>SFTP<><col>22<>
+<col>SNMP<><col>161<>
+<col>Spark<><col>7077<>
+<col>SSH<><col>22<>
+<col>Telnet<><col>25<>
+<col>Tomcat (HTTPS)<><col>8443<>
+<col>WebSphere MQ<><col>1414<>
+<col>Windows Remote Desktop<><col>3389<><>
 
 
 
@@ -1357,6 +1349,9 @@ Use this for testing.
 # Acronyms
 
 
+### AMQP
+Advanced Message Queuing Protocol
+
 
 ### CIDR
 Classless Inter-Domain Routing
@@ -1372,12 +1367,60 @@ Example:
 Domain Name System
 
 
+### FTP
+File Transfer Protocol
+
+
+### HTML
+Hypertext Markup Language
+
+
 ### HTTP
 Hypertext Transport Protocol
 
 
+### HTTPS
+Hypertext Transport Protocol Secure
+
+
+### IMAP
+Internet Message Access
+
+
+### JMX
+Java Management Extensions
+
+
+### LDAP
+Lightweight Directory Access Protocol
+
+
+### NNTP
+Network News Transfer Protocol
+
+
+### POP
+Post Office Protocol
+
+
+### RDP
+Remote Desktop Protocol
+
+
+### SMTP
+Simple Mail Transfer Protocol
+
+
 ### SNI
 Server Name Indication
+
+
+### SNMP
+Simple Network Management Protocol
+
+
+### SSH
+Secure Shell
 
 
 ### SSL
