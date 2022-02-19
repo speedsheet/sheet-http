@@ -5,7 +5,14 @@ This is an interactive cheat sheet with answers to all things HTTP.
 It contains HTTP commands, HTTP error codes, ports by protocol, and more.
 
 
-<image "http-example.webp">
+### Search For It:
+
+<card><table><col><b>Need This?		<><><col><b>Search For:		<><><col><b>See Search In Action:<><>
+<col> <>
+<col>Error 401<><col>401<><col><l>/s/http?search=401<><>
+<col>Port 3307<><col>3307<><col><l>/s/http?search=3307<><>
+<col>MySQL Ports<><col>mysql<><col><l>/s/http?search=mysql<><>
+<col>Mime Types<><col>mime types<><col><l>/s/http?search=mime+types<><><><>
 
 
 Follow us on Twitter:
@@ -19,19 +26,21 @@ Follow us on Twitter:
 
 <b><#>Note:<><>
 
-Create: Use either POST or PUT.
-- If name/id provided in url... 		use PUT
-- If the server creates name/id...	use POST
+Create:
+
+Use either POST or PUT:
+
+<table><col><c>PUT<>		<><col>Name / ID Sent In Request<>
+<col><c>POST<><><col>Name / ID Created By Call<><>
 
 
 ## Summary
 
-GET			Retrieve
-POST		Submit Data / Add Sub-element
-PUT			Create / Replace (must be idempotent)
-DELETE		Delete
-HEAD
-
+<table><col><c>GET<>		<><col>Retrieve<>
+<col><c>POST<><><col>Submit Data / Add Sub-element<>
+<col><c>PUT<><><col>Create / Replace (must be idempotent)<>
+<col><c>DELETE<><><col>Delete<>
+<col><c>HEAD<><><>
 
 
 ## Command
@@ -43,15 +52,12 @@ Retrieve a web resource.
 
 Passing Parameters:
 
-<c><s>http://url/path<>?<v>param1<>=<v>value1<>&<v>param2<>=<v>value2...<><>
+<cb><s>http://url/path<>?<v>param1<>=<v>value1<>&<v>param2<>=<v>value2...<><>
 
 Message Body:
 
-None
+<cb><#>None<><>
 
-
-
-Notes:
 
 Parameters must be escaped.
 Can be cached.
@@ -64,7 +70,7 @@ Should only be used for retrieving data.
 
 Example:
 
-<c>http://www.asite.com/login?user=test1&password=pass123<>
+<cb>http://www.site.com/login?user=test1&password=pass123<>
 
 
 
@@ -72,24 +78,26 @@ Example:
 
 Submit data or add sub-element.
 
+Message Body:
 
-Message Boddy	POST /test/demo_form.asp HTTP/1.1
-		Host: w3schools.com
-		name1=value1&name2=value2
+<cb>POST /<v>path<>/<v>to<>/<v>item<> HTTP/1.1
+Host: <v>url.com<>
+<v>name_1<>=<v>value_1<>&<v>name_2<>=<v>value_2<><><>
 
-Notes	Requests are never cached.
-		Do not remain in browser history.
-		Cannot be bookmarked.
-		No length restrictions
+
+Requests are never cached.
+Do not remain in browser history.
+Cannot be bookmarked.
+No length restrictions
 
 
 
 ### PUT
 
-Create / replace item.
+Create or replace item.
+
 Must be idempotent.
 
-Note:
 If name/id is provided in the url request, use this (PUT).
 If the server creates name/id, use POST.
 
@@ -123,17 +131,18 @@ Name:			<c>Content-type<>
 
 #### Prevent Cross Site Scripting
 
-<c>Content-Security-Policy: <v>policy<><>
-<c>Content-Security-Policy: <v>policy<>; <v>policy...<><>
+<cb>Content-Security-Policy: <v>policy<><>
 
-Name:			<c>Content-Security-Policy
+<cb>Content-Security-Policy: <v>policy<>; <v>policy...<><>
 
-Value:			default-src 'self'; 	Allow original site content only.
-				default-src 'self' *.trusted.domain;	Allow original site and trusted site only.
-
-				image-src ...		Sets image policy.
-				media-src ...		Sets media policy
-				script-src ...		Sets script policy.
+<table><col>Name<><col><c>Content-Security-Policy<><>
+<col> <>
+<col>Value<><col><c>default-src 'self';<><><col><#>Allow original site content only.<><>
+<col><><col><c>default-src 'self' *.trusted.domain;<><><col><c><#>Allow original site and trusted site only.<><><>
+<col> <>
+<col><><col><c>image-src<v>...<><><><col><#>Sets image policy.<><>
+<col><><col><c>media-src<v>...<><><><col><#>Sets media policy<><>
+<col><><col><c>script-src<v>...<><><><col><#>Sets script policy.<><><>
 
 @ Content-Security-Policy
 
@@ -141,16 +150,15 @@ Value:			default-src 'self'; 	Allow original site content only.
  
 #### Cross Site Scripting - Protect
 
-<c>X-XSS-Protection: <v>value<><>
+<cb>X-XSS-Protection: <v>value<><>
 
-Name:			<c>>X-XSS-Protection<>
+<c><v>value<><>:
 
-Values:			0				Do not react.
-				1				Sanitize any cross site scripting
-				1;mode=block	Block entire page if cross site scripting detected.
-
-@X-XSS-Protection
-
+<card><table><col>0<><col>Do not react.<>
+<col>1<><col>Sanitize any cross site scripting<>
+<col>1;mode=block<><col>Block entire page if cross site scripting detected.<><><>
+@
+@ X-XSS-Protection
 
 
 
@@ -195,15 +203,15 @@ $			<c>%24<>
 
 
 
-## Summary
+## Response Codes - Basics
 
-1xx		Informational
+<cb>1xx		Informational
 2xx		Success
 3xx		Redirect
 4xx		Client Error
-5xx		Server Error
+5xx		Server Error<>
 
-100		Continue
+<cb>100		Continue
 101		Switching Protocols
 102		Processing
 
@@ -252,7 +260,6 @@ $			<c>%24<>
 422		Unprocessable Entity
 423		Locked
 424		Failed Dependency
-...
 
 500		Server Error
 501		Not Implemented
@@ -269,11 +276,13 @@ $			<c>%24<>
 550		Permission Denied
 551		Option Not Supported
 598		Network Read Timeout Error (Unknown)
-599		Network Connection Timeout Error (Unknown)
+599		Network Connection Timeout Error (Unknown)<>
+@
+@ summary
+
 
 
 ## Details
-
 
 
 ### HTTP Code - Informative (1xx)
@@ -648,7 +657,7 @@ Step 5:	Be sure to clear the cookies upon logout!
 
 
 
-# MIME
+# MIME Types
 
 Multipurpose Internet Mail Extensions
 
@@ -658,126 +667,177 @@ Structure:	<c><v>type<>/<v>subtype<><>
 
 
 
-## Types - Summary
+## MIME Types - By Type
+
+<card><table><col><b>Type<>			<><col><b>Content-Type<><>
+<col> <>
+<col>CSS<><col><c>text/css<><>
+<col>Form<><col><c>application/x-www-form-urlencoded<><>
+<col>GIF<><col><c>image/gif<><>
+<col>HTML<><col><c>text/html<><>
+<col>JavaScript<><col><c>application/javascript<><>
+<col>JPEG<><col><c>image/jpeg<><>
+<col>JSON<><col><c>application/json<><>
+<col>PNG<><col><c>image/png<><>
+<col>Text<><col><c>application/text<><>
+<col>Text<><col><c>text/plain<><>
+<col>XML<><col><c>application/xml<><><><>
+@
+@ basics, summary
 
 
 
-### Types - By Type
+## MIME Types - By Content-Type
 
-<b>Type				Content-Type<>
-
-css					text/css
-form				application/x-www-form-urlencoded
-gif					image/gif
-html				text/html
-javascript			application/javascript
-jpeg				image/jpeg
-json					application/json
-png					image/png
-text					application/text
-text					text/plain
-xml					application/xml
-
-
-
-### Types - By Content-Type
-
-<b>Content-Type			Type<>
-
-application/javascript		javascript
-application/json			json
-application/text			text
-application/x-www-form-urlencoded
-						form
-application/xml			xml
-image/gif				gif
-image/jpeg				jpeg
-image/png				png
-text/css					css
-text/html					html
-text/plain					text
+<card><table><col><b>Content-Type<><><col><b>Type<><>
+<col> <>
+<col><c>application/javascript<><><col>JavaScript<>
+<col><c>application/json<><><col>JSON<>
+<col><c>application/text<><><col>Text<>
+<col><c>application/x-www-form-urlencoded<><><col>Form<>
+<col><c>application/xml<><><col>XML<>
+<col><c>image/gif<><><col>GIF<>
+<col><c>image/jpeg<><><col>JPG<>
+<col><c>image/png<><><col>PNG<>
+<col><c>text/css<><><col>CSS<>
+<col><c>text/html<><><col>HTML<>
+<col><c>text/plain<><><col>Text<><><>
+@
+@ basics, summary
 
 
 
 ## Types - Details
 
 
+### MIME Type - Application
 
-### MIME Type - application
+Type:
 
-Type:		application
+<cb>application<>
 
+
+#### MIME Type - Application / Form
+
+Type:
+
+<cb>application/x-www-form-urlencoded<>
+@
+@ application/x-www-form-urlencoded, x-www-form-urlencoded
+@ application/form
 
 
 #### MIME Type - Application / JavaScript
 
-Type:		application/javascript
+Type:
 
+<cb>application/javascript<>
+@
+@ application/javascript
 
 
 #### MIME Type - Application / Text
 
-Type:		application/text
+Type:
+
+<cb>application/text<>
+@
+@ application/text
 
 
+#### MIME Type - Application / XML
 
-### MIME Type - audio
+Type:
 
-Type:		audio
-
-
-
-### MIME Type - example
-
-Type:		example
+<cb>application/xml<>
+@
+@ application/xml
 
 
+### MIME Type - Audio
 
-### MIME Type - font
+Type:
 
-Type:		font
-
-
-
-### MIME Type - image
-
-Type:		image
+<cb>audio<>
 
 
+### MIME Type - Example
 
-### MIME Type - message
+Type:
 
-Type:		message
+<cb>example<>
+
+
+### MIME Type - Font
+
+Type:
+
+<cb>font<>
+
+
+### MIME Type - Image
+
+Type:
+
+<cb>image<>
+
+
+### MIME Type - Message
+
+Type:
+
+<cb>message<>
 
 A message that contains other messages.
 
 
+### MIME Type - Model
 
-### MIME Type - model
+Type:
 
-Type:		model
+<cb>model<>
 
 Data for a model, eg 3d model.
 
 
+### MIME Type - Multipart
 
-### MIME Type - multipart
+Type:
 
-Type:		multipart
+<cb>multipart<>
 
 Data that has multiple parts. Each part can be a different MIME type.
 
 
+#### MIME Type - Multipart HTML
 
-#### MIME Type Multipart - HTML
+<cb>Content-Type: multipart/form-data; boundary=<v>boundary-text<><>
 
-<c>Content-Type: multipart/form-data; boundary=<v>boundary-text<><>
+Boundary Text:
 
-Sections separated by <c>--<v>boundary-text<><>
-End indicated by <c>--<v>boundary-text<>--<>
+	<c><v>boundary-text<><>
 
-<b>Example:<>
-<c>Content-Type: multipart/form-data; boundary=<v>boundary-1<>
+	Identifies separators and terminators.
+	Can be anything.
+	Must be unique within the message.
+
+Section Separator:
+
+	<c>--<v>boundary-text<><>
+
+End / Terminator:
+
+	<c>--<v>boundary-text<>--<>
+
+
+Example Boundary Text:
+
+<cb>7a3e36a15abceda3355bd95c5766203<>
+
+
+Example Message:
+
+<cb>Content-Type: multipart/form-data; boundary=<v>boundary-1<>
 
 --<v>boundary-1<>
 
@@ -794,23 +854,23 @@ Last section
 --<v>boundary-1<>--<>
 
 
-
-### MIME Type - text
+### MIME Type - Text
 
 Text and human readable content.
 
-Type:		text
+Type:
+
+<cb>text<>
 
 
+### MIME Type - Video
 
-### MIME Type - video
+Type:
 
-Type:		video
-
+<cb>video<>
 
 
 # HTTP Protocols
-
 
 
 ## Summary
