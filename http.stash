@@ -9,17 +9,10 @@ It contains HTTP commands, HTTP error codes, ports by protocol, and more.
 
 <card><table><col><b>Need This?		<><><col><b>Search For:		<><><col><b>See Search In Action:<><>
 <col> <>
-<col>Error 401<><col>401<><col><l>/s/http?search=401<><>
-<col>Port 3307<><col>3307<><col><l>/s/http?search=3307<><>
-<col>MySQL Ports<><col>mysql<><col><l>/s/http?search=mysql<><>
-<col>Mime Types<><col>mime types<><col><l>/s/http?search=mime+types<><><><>
-
-
-Follow us on Twitter:
-
-<card><l https://twitter.com/_speedsheet>@_speedsheet<><>
-@
-@ twitter
+<col>Error 401<><col>401<><col><l "/s/http?search=401">Search Results<><>
+<col>Port 3307<><col>3307<><col><l "/s/http?search=3307">Search Results<><>
+<col>MySQL Ports<><col>mysql<><col><l "/s/http?search=mysql">Search Results<><>
+<col>Mime Types<><col>mime types<><col><l "/s/http?search=mime+types">Search Results<><><><>
 
 
 # HTTP Commands / Verbs
