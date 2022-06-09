@@ -1,18 +1,38 @@
 # <#>HTTP<> SpeedSheet
-<b>Find what you need, faster.<>
+<b>Find it faster.<>
 
-This is an interactive cheat sheet with answers to all things HTTP.
-It contains HTTP commands, HTTP error codes, ports by protocol, and more.
+This is an interactive <b>HTTP<> cheat sheet. This cheat sheet with answers to all things HTTP (commands, error codes, protocols, etc.). Use the search to instantly get answers.
 
 
-### Search For It:
+<table><col><b>HTTP<>
 
-<card><table><col><b>Need This?		<><><col><b>Search For:		<><><col><b>See Search In Action:<><>
-<col> <>
-<col>Error 401<><col>401<><col><l "/s/http?search=401">Search Results<><>
-<col>Port 3307<><col>3307<><col><l "/s/http?search=3307">Search Results<><>
-<col>MySQL Ports<><col>mysql<><col><l "/s/http?search=mysql">Search Results<><>
-<col>Mime Types<><col>mime types<><col><l "/s/http?search=mime+types">Search Results<><><><>
+<*><link "?q=verbs-only">Verbs<>
+<link "?q=header-only">Header<>
+<link "?q=protocol-only">Protocols<>
+<link "?q=url-only">URL<>
+<link "?q=connection-only">Connection<><>
+
+<*><link "?q=mimes-only">Mime Types<><>
+
+<b>Reference<>
+
+<*><link "?q=acronyms">Acronyms<>
+<link "?q=terms">Terms<><><><col>	<><col><b>HTTP Codes<>
+
+<*><link "?q=codes-only#response_codes_-_basics">Response Codes<><>
+
+<*><link "?q=1xx">100s / Informative<>
+<link "?q=2xx">200s / Success<>
+<link "?q=3xx">300s / Redirect<>
+<link "?q=4xx">400s / Client Error<>
+<link "?q=5xx">500s / Server Error<><>
+
+<b>Ports<>
+
+<*><link "?q=ports-only">Ports<><>
+
+<*><link "?q=port-only+by+number">By Port Number<>
+<link "?q=port-only+by+use">By Use<><><><>
 
 
 # HTTP Commands / Verbs
@@ -25,6 +45,8 @@ Use either POST or PUT:
 
 <table><col><c>PUT<>		<><col>Name / ID Sent In Request<>
 <col><c>POST<><><col>Name / ID Created By Call<><>
+@
+@ verb-only, verbs-only
 
 
 ## Summary
@@ -109,7 +131,8 @@ Delete an item.
 
 
 # HTTP Header
-
+@
+@ header-only
 
 
 ### HTTP Header - Content Type
@@ -156,6 +179,28 @@ Name:			<c>Content-type<>
 
 
 # HTTP URL
+@
+@ url-only
+
+
+### HTTP URL - Components
+
+<cb><v>http<>://<v>host<>:<v>port<>/<v>path<>?<v>query<>#<v>fragment<><>
+@
+@ http, https, host, port, path, query, fragment, ://, :, ?, #
+
+
+
+### HTTP URL - Query
+
+<cb>?<v>param1<>=<v>value1<>&<v>param2<>=<v>value2<><>
+
+From URL Query:
+
+<cb><v>http<>://<v>host<>:<v>port<>/<v>path<>?<v>query<>#<v>fragment<><>
+@
+@ parameter, ?, &, =
+
 
 
 ### HTTP URL - Escape
@@ -190,10 +235,9 @@ $			<c>%24<>
 
 
 # HTTP Response Codes
-
-
+@
 @ Status
-
+@ response-codes-only, codes-only
 
 
 ## Response Codes - Basics
@@ -407,6 +451,8 @@ Permanent Redirect
 #### HTTP Code - 400 / Bad Request
 Bad Request
 
+Caller error.
+
 
 
 #### HTTP Code - 401 / Unauthorized
@@ -451,6 +497,12 @@ Request Timeout
 
 #### HTTP Code - 409 / Conflict
 Conflict
+
+Conflicts with the Server State
+Duplicate Request
+Duplicate Record
+@
+@ duplicate record, duplicate request, duplicates
 
 
 
@@ -531,7 +583,7 @@ Failed Dependency
 #### HTTP Code - 500 / Server Error
 Server Error
 @
-@ internal
+@ internal, exception
 
 
 
@@ -611,7 +663,8 @@ Network Connection Timeout Error (Unknown)
 
 
 # HTTP Connection
-
+@
+@ connection-only, connections-only
 
 
 ### HTTP - Create / Client Hello
@@ -657,6 +710,8 @@ Multipurpose Internet Mail Extensions
 
 Structure:	<c><v>type<>/<v>subtype<><>
 			<c><v>type<>/<v>subtype<>;<v>parameter<>=<v>value<><>
+@
+@ mime-only, mimes-only, mime-types-only
 
 
 
@@ -710,7 +765,7 @@ Type:
 <cb>application<>
 
 
-#### MIME Type - Application / Form
+### MIME Type - Application / Form
 
 Type:
 
@@ -720,7 +775,7 @@ Type:
 @ application/form
 
 
-#### MIME Type - Application / JavaScript
+### MIME Type - Application / JavaScript
 
 Type:
 
@@ -729,7 +784,7 @@ Type:
 @ application/javascript
 
 
-#### MIME Type - Application / Text
+### MIME Type - Application / Text
 
 Type:
 
@@ -738,7 +793,7 @@ Type:
 @ application/text
 
 
-#### MIME Type - Application / XML
+### MIME Type - Application / XML
 
 Type:
 
@@ -802,7 +857,7 @@ Type:
 Data that has multiple parts. Each part can be a different MIME type.
 
 
-#### MIME Type - Multipart HTML
+### MIME Type - Multipart HTML
 
 <cb>Content-Type: multipart/form-data; boundary=<v>boundary-text<><>
 
@@ -864,6 +919,8 @@ Type:
 
 
 # HTTP Protocols
+@
+@ protocol-only, protocols-only
 
 
 ## Summary
@@ -948,11 +1005,14 @@ Protocol:			<c>tel:<>
 		<c>irc<>
 		<c>mailto<>
 		<c>tel<>
+@
+@ scheme-only, schemes-only, protocol-only, protocols-only
 
 
 
 # Ports
-
+@
+@ port-only, ports-only
 
 
 ## Summary
@@ -1009,6 +1069,8 @@ PyPI Server<>
 <col> <>
 <col>1024 - 49151<><col>Registered Ports<>
 <col>49152 - 65535<><col>Dynamic / Private Ports<><>
+@
+@ numbers
 
 
 
@@ -1382,11 +1444,54 @@ Type:			ActiveMQ - Message Port
 
 
 
+# Domains
+@
+@ domain-only, dns
+
+
+
+### Domain Name - Valid Identifier
+
+Valid domain name requirements:
+
+<card><table><col>Length<><col>2 - 63 Characters<>
+<col> <>
+<col>Valid Characters<><col><c>A-Z<><>
+<col><><col><c>0-9<><>
+<col><><col><c>-<><><col>(dash)<>
+<col> <>
+<col><><col><c>à á â ã ä å<><>
+<col><><col><c>è é ê ë<><>
+<col><><col><c>ì í î ï<><>
+<col><><col><c>ò ó ô õ ö<><>
+<col><><col><c>ù ú û ü<><>
+<col><><col><c>ñ<><>
+<col><><col><c>ý ÿ<><>
+<col> <>
+<col><><col><c>æ œ ç ð ø þ ß<><>
+<col> <>
+<col>Not Allowed<><col>Space
+
+<c>! # $ % & ^ * + ~ , ` ‘ ”
+: ; ? @ _ ( [ { \\ | / =<><><><>
+
+<card><table><col>Case Sensitive<><col>No<>
+<col> <>
+<col>International Letters<><col>Yes<>
+<col> <><col>(stored / searchable with English equivalents)<>
+<col> <>
+<col>Start With a Number<><col>Yes<>
+<col>Start With Hyphen<><col>No<><><>
+@
+@ characters, allowable
+
+
+
 # How To
 
 
 
-## URL - Timeout
+## Test URL - Timeout Link
 
 Use:
 
@@ -1496,6 +1601,10 @@ Universal Resource Identifier
 Uniform Resource Locator
 
 
+### URN
+Uniform Resource Name
+
+
 
 # Terms
 
@@ -1585,12 +1694,68 @@ The security layer in most http calls. It is SSL rebranded under a new name.
 ### URI (Universal Resource Identifier)
 A character string that identifies a resource.
 
+It can be an internet resource or some other type of resource.
+
+<cb><v>scheme<>://<v>authority<>:/<v>path<>?<v>query<>#<v>fragment<><>
+
+Schemes:
+
+	mailto:
+	https:
+	urn:
+@
+@ authority, path, query, fragment, anchor
 
 
-### URL (Uniform Resource Locator)
-A type of URI that identifies a resource by its location or by the means used to acce it. Usually identifies an existing resource on the Internet.
-Components: Scheme, Host, Port, Path, Query String
-<c><v>protocol<>://<v>host<>:<v>port<>/<v>path<>?<v>query<><>
+
+### Uniform Resource Locator (URL)
+URI that identifies a resource on the Internet.
+
+Components: Scheme (protocol), Host, Port, Path, Query String
+
+<cb><v>scheme<>://<v>host<>:<v>port<>/<v>path<>?<v>query<>#<v>fragment<><>
+
+Note: The fragment must come after the query. Everything after the <c>#<> is considered the fragment.
+@
+@ @ scheme, host, path, query, fragment, anchor
 
 
+
+### URN (Uniform Resource Name)
+A globally unique persistent id.
+
+It is a type of URI.
+
+
+Example:
+
+On the Origin of Species / Charles Darwin
+
+<cb>urn:isbn:978-048-6-45006-3<>
+
+
+
+### URN vs URL vs URI
+
+URI:
+
+<*>A String that Identifies a Resource
+Form: <c><v>scheme<>://<v>authority<>:/<v>path<>?<v>query<>#<v>fragment<><><>
+
+
+URL:
+
+<*>A Type of URI
+Identifies a Web Address<>
+
+<*>e.g. <c><v>https://speedsheet.io/s/http<><><>
+
+
+URN:
+
+<*>A type of URI
+Uniquely Identifies an Item
+Uses the <c>urn:<> Scheme<>
+
+<*>e.g. <c><v>urn:isbn:978-048-6-45006-3<><><>
 
