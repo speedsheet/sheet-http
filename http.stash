@@ -9,7 +9,9 @@ This is an interactive <b>HTTP<> cheat sheet. This cheat sheet with answers to a
 <*><link "?q=verbs-only">Verbs<>
 <link "?q=header-only">Header<>
 <link "?q=protocol-only">Protocols<>
-<link "?q=url-only">URL<>
+<link "?q=url-only">URL<><>
+
+<*><l "?q=url+escape">Escapes<>
 <link "?q=connection-only">Connection<><>
 
 <*><link "?q=mimes-only">Mime Types<><>
@@ -26,6 +28,8 @@ This is an interactive <b>HTTP<> cheat sheet. This cheat sheet with answers to a
 <link "?q=3xx">300s / Redirect<>
 <link "?q=4xx">400s / Client Error<>
 <link "?q=5xx">500s / Server Error<><>
+
+
 
 <b>Ports<>
 
@@ -265,7 +269,7 @@ $			<c>%24<>
 
 300		Multiple Choices
 301		Moved Permanently
-302		Not Found
+302		Found (Redirect Status)
 303		See Other
 304		Not Modified
 305		Use Proxy
@@ -409,8 +413,8 @@ Moved Permanently
 
 
 
-#### HTTP Code - 302 / Not Found
-Not Found
+#### HTTP Code - 302 / Found
+Found (redirect status)
 
 
 
@@ -857,7 +861,7 @@ Type:
 Data that has multiple parts. Each part can be a different MIME type.
 
 
-### MIME Type - Multipart HTML
+### MIME Type - Multipart HTTP
 
 <cb>Content-Type: multipart/form-data; boundary=<v>boundary-text<><>
 
@@ -1041,10 +1045,12 @@ Protocol:			<c>tel:<>
 <col>1414<><col>WebSphere MQ<>
 <col>1433<><col>Microsoft Sql Server DB<>
 <col>1521<><col>Oracle DB<>
+<col>2019<><col>Caddy Web Server<>
 <col>3306<><col>MySql DB<>
 <col>3307<><col>MySql DB (SSL)<>
 <col>3389<><col>RDP / Microsoft Remote Desktop<>
 <col>4200<><col>HTTP (Angular)<>
+<col>5173<><col>SvelteKit (Development)<>
 <col>5432<><col>PostgreSql Db<>
 <col>5672<><col>AMQP (Message Queue)<>
 <col>5984<><col>Blockchain<>
@@ -1081,6 +1087,7 @@ PyPI Server<>
 <col>Angular (HTTP)<><col>4200<>
 <col>Apache Spark<><col>7077<>
 <col>Blockchain<><col>5984, 6984<>
+<col>Caddy Web Server<><col>2019<>
 <col>Cassandra<><col>7000, 7001, 7199, 9160, 9042<>
 <col>DB - Cassandra<><col>7000, 7001, 7199, 9160, 9042<>
 <col>DB - Microsoft Sql Server<><col>1433<>
@@ -1121,6 +1128,7 @@ PyPI Server<>
 <col>SNMP<><col>161<>
 <col>Spark<><col>7077<>
 <col>SSH<><col>22<>
+<col>SvelteKit (Development)<><col>5173<>
 <col>Telnet<><col>25<>
 <col>Tomcat (HTTPS)<><col>8443<>
 <col>WebSphere MQ<><col>1414<>
@@ -1272,6 +1280,13 @@ Type:			Oracle DB
 
 
 
+#### Port -  3306, Caddy Server
+
+Port:			2019
+Type:			Caddy Web Server
+
+
+
 #### Port -  3306, MySql DB
 
 Port:			3306
@@ -1297,6 +1312,13 @@ Type:			RDP / Microsoft Remote Desktop
 
 Port:			4200
 Type:			HTTP (Angular)
+
+
+
+#### Port -  5173, SvelteKit
+
+Port:			443
+Type:			SvelteKit
 
 
 
