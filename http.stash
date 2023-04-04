@@ -191,7 +191,7 @@ Name:			<c>Content-type<>
 
 <cb><v>http<>://<v>host<>:<v>port<>/<v>path<>?<v>query<>#<v>fragment<><>
 @
-@ http, https, host, port, path, query, fragment, ://, :, ?, #
+@ http, https, host, port, path, query, fragment, ://, :, ?, #, parts
 
 
 
@@ -209,32 +209,72 @@ From URL Query:
 
 ### HTTP URL - Escape
 
-Space		<c>%20<>
-$			<c>%24<>
-&			<c>%26<>
-`			<c>%60<>
-:			<c>%3A<>
-\<			<c>%3C<>
->			<c>%3E<>
-[			<c>%5B<>
-]			<c>%5D<>
-{			<c>%7B<>
-}			<c>%7D<>
-“			<c>%22<>
-+			<c>%2B<>
-\#			<c>%23<>
-%			<c>%25<>
-\@			<c>%40<>
-/			<c>%2F<>
-;			<c>%3B<>
-=			<c>%3D<>
-?			<c>%3F<>
-\\			<c>%5C<>
-^			<c>%5E<>
-|			<c>%7C<>
-~			<c>%7E<>
-‘			<c>%27<>
-,			<c>%2C<>
+<table><col>Carriage Return<><col><c>%0D<><>
+<col>Line Feed<><col><c>%0A<><><>
+
+<table><col>Space<><col><c>%20<><>
+<col>$<><col><c>%24<><>
+<col>&<><col><c>%26<><>
+<col>“<><col><c>%22<><>
+<col>+<><col><c>%2B<><>
+<col>:<><col><c>%3A<><>
+<col>\#<><col><c>%23<><>
+<col>%<><col><c>%25<><>
+<col>\@<><col><c>%40<><>
+<col>~<><col><c>%7E<><>
+<col>=<><col><c>%3D<><>
+<col>?<><col><c>%3F<><>
+<col>^<><col><c>%5E<><>
+<col>,<><col><c>%2C<><>
+<col>‘<><col><c>%27<><>
+<col>`<><col><c>%60<><>
+<col>;<><col><c>%3B<><>
+<col>\<<><col><c>%3C<><>
+<col>><><col><c>%3E<><>
+<col>[<><col><c>%5B<><>
+<col>]<><col><c>%5D<><>
+<col>{<><col><c>%7B<><>
+<col>}<><col><c>%7D<><>
+<col>/<><col><c>%2F<><>
+<col>|<><col><c>%7C<><>
+<col>\\<><col><c>%5C<><><>
+@
+@ %
+
+
+
+### HTTP URL - Unescape
+
+<table><col><c>%0A<>		<><col>Line Feed<>
+<col><c>%0D<><><col>Carriage Return<>
+<col><c>%20<><><col>Space<>
+<col><c>%22<><><col>“<>
+<col><c>%23<><><col>\#<>
+<col><c>%24<><><col>$<>
+<col><c>%25<><><col>%<>
+<col><c>%26<><><col>&<>
+<col><c>%27<><><col>‘<>
+<col><c>%2B<><><col>+<>
+<col><c>%2C<><><col>,<>
+<col><c>%2F<><><col>/<>
+<col><c>%3A<><><col>:<>
+<col><c>%3B<><><col>;<>
+<col><c>%3C<><><col>\<<>
+<col><c>%3D<><><col>=<>
+<col><c>%3E<><><col>><>
+<col><c>%3F<><><col>?<>
+<col><c>%40<><><col>\@<>
+<col><c>%5B<><><col>[<>
+<col><c>%5C<><><col>\\<>
+<col><c>%5D<><><col>]<>
+<col><c>%5E<><><col>^<>
+<col><c>%60<><><col>`<>
+<col><c>%7B<><><col>{<>
+<col><c>%7C<><><col>|<>
+<col><c>%7D<><><col>}<>
+<col><c>%7E<><><col>~<><>
+@
+@ escape, %, reverse
 
 
 
@@ -1043,6 +1083,7 @@ Protocol:			<c>tel:<>
 <col>993<><col>IMAP (SSL) (Email)<>
 <col>995<><col>POP3 (SSL/TSL) (Email)<>
 <col>1414<><col>WebSphere MQ<>
+<col>1420<><col>Tauri (Dev Local)<>
 <col>1433<><col>Microsoft Sql Server DB<>
 <col>1521<><col>Oracle DB<>
 <col>2019<><col>Caddy Web Server<>
@@ -1129,6 +1170,7 @@ PyPI Server<>
 <col>Spark<><col>7077<>
 <col>SSH<><col>22<>
 <col>SvelteKit (Development)<><col>5173<>
+<col>Tauri (Dev Local)<><col>1420<>
 <col>Telnet<><col>25<>
 <col>Tomcat (HTTPS)<><col>8443<>
 <col>WebSphere MQ<><col>1414<>
@@ -1140,252 +1182,259 @@ PyPI Server<>
 
 
 
-#### Port -  22, SSH
+#### Port - 22, SSH
 
 Port:			22
 Type:			SSH
 
 
 
-#### Port -  21, FTP
+#### Port - 21, FTP
 
 Port:			21
 Type:			FTP
 
 
 
-#### Port -  22, SFTP
+#### Port - 22, SFTP
 
 Port:			22
 Type:			SFTP
 
 
 
-#### Port -  23, Telnet
+#### Port - 23, Telnet
 
 Port:			23
 Type:			Telnet
 
 
 
-#### Port -  25, SMTP (Email)
+#### Port - 25, SMTP (Email)
 
 Port:			25
 Type:			SMTP (Email)
 
 
 
-#### Port -  53, DNS
+#### Port - 53, DNS
 
 Port:			53
 Type:			DNS
 
 
 
-#### Port -  80, HTTP
+#### Port - 80, HTTP
 
 Port:			80
 Type:			HTTP
 
 
 
-#### Port -  110, POP3 (Email)
+#### Port - 110, POP3 (Email)
 
 Port:			110
 Type:			POP3 (Email)
 
 
 
-#### Port -  119, NNTP
+#### Port - 119, NNTP
 
 Port:			119
 Type:			NNTP
 
 
 
-#### Port -  143, IMAP (Email)
+#### Port - 143, IMAP (Email)
 
 Port:			143
 Type:			IMAP (Email)
 
 
 
-#### Port -  161, SNMP
+#### Port - 161, SNMP
 
 Port:			161
 Type:			SNMP
 
 
 
-#### Port -  389, LDAP
+#### Port - 389, LDAP
 
 Port:			389
 Type:			LDAP
 
 
 
-#### Port -  443, HTTPS
+#### Port - 443, HTTPS
 
 Port:			443
 Type:			HTTPS
 
 
 
-#### Port -  465, SMTPS (Email) (SSL)
+#### Port - 465, SMTPS (Email) (SSL)
 
 Port:			465
 Type:			SMTPS (Email) (SSL)
 
 
 
-#### Port -  587, Email (Outgoing, TLS)
+#### Port - 587, Email (Outgoing, TLS)
 
 Port:			587
 Type:			Email (Outgoing, TLS)
 
 
 
-#### Port -  993, IMAP (SSL) (Email)
+#### Port - 993, IMAP (SSL) (Email)
 
 Port:			993
 Type:			IMAP (SSL) (Email)
 
 
 
-#### Port -  995, POP3 (SSL/TSL) (Email)
+#### Port - 995, POP3 (SSL/TSL) (Email)
 
 Port:			995
 Type:			POP3 (SSL/TSL) (Email)
 
 
 
-#### Port -  1414, WebSphere MQ
+#### Port - 1414, WebSphere MQ
 
 Port:			1414
 Type:			WebSphere MQ
 
 
 
-#### Port -  1433, Microsoft Sql Server DB
+#### Port - 1420, Tauri
+
+Port:			1420
+Type:			Tauri Local Development
+
+
+
+#### Port - 1433, Microsoft Sql Server DB
 
 Port:			1433
 Type:			Microsoft Sql Server DB
 
 
 
-#### Port -  1521, Oracle DB
+#### Port - 1521, Oracle DB
 
 Port:			1521
 Type:			Oracle DB
 
 
 
-#### Port -  3306, Caddy Server
+#### Port - 2019, Caddy Server
 
 Port:			2019
 Type:			Caddy Web Server
 
 
 
-#### Port -  3306, MySql DB
+#### Port - 3306, MySql DB
 
 Port:			3306
 Type:			MySql DB
 
 
 
-#### Port -  3307, MySql DB (SSL)
+#### Port - 3307, MySql DB (SSL)
 
 Port:			3307
 Type:			MySql DB (SSL)
 
 
 
-#### Port -  3389, RDP / Microsoft Remote Desktop
+#### Port - 3389, RDP / Microsoft Remote Desktop
 
 Port:			3389
 Type:			RDP / Microsoft Remote Desktop
 
 
 
-#### Port -  4200, HTTP (Angular)
+#### Port - 4200, HTTP (Angular)
 
 Port:			4200
 Type:			HTTP (Angular)
 
 
 
-#### Port -  5173, SvelteKit
+#### Port - 5173, SvelteKit
 
 Port:			443
 Type:			SvelteKit
 
 
 
-#### Port -  5432, PostgreSql Db
+#### Port - 5432, PostgreSql Db
 
 Port:			5432
 Type:			PostgreSql Db
 
 
 
-#### Port -  5672, AMQP (Message Queue)
+#### Port - 5672, AMQP (Message Queue)
 
 Port:			5672
 Type:			AMQP (Message Queue)
 
 
 
-#### Port -  5984, Blockchain
+#### Port - 5984, Blockchain
 
 Port:			5984
 Type:			Blockchain
 
 
 
-#### Port -  6379, Redis
+#### Port - 6379, Redis
 
 Port:			6379
 Type:			Redis
 
 
 
-#### Port -  6984, Blockchain
+#### Port - 6984, Blockchain
 
 Port:			6984
 Type:			Blockchain
 
 
 
-#### Port -  7000, Cassandra - Internode communication (not used if TLS enabled)
+#### Port - 7000, Cassandra - Internode communication (not used if TLS enabled)
 
 Port:			7000
 Type:			Cassandra - Internode communication (not used if TLS enabled)
 
 
 
-#### Port -  7001, Cassandra - TLS Internode communication (used if TLS enabled)
+#### Port - 7001, Cassandra - TLS Internode communication (used if TLS enabled)
 
 Port:			7001
 Type:			Cassandra - TLS Internode communication (used if TLS enabled)
 
 
 
-#### Port -  7077, Spark
+#### Port - 7077, Spark
 
 Port:			7077
 Type:			Spark
 
 
 
-#### Port -  7199, Cassandra - JMX
+#### Port - 7199, Cassandra - JMX
 
 Port:			7199
 Type:			Cassandra - JMX
 
 
 
-#### Port -  8080, HTTP
+#### Port - 8080, HTTP
 
 Port:			8080
 Type:			HTTP
@@ -1396,70 +1445,70 @@ Type:			HTTP
 
 
 
-#### Port -  8161, ActiveMQ (Console)
+#### Port - 8161, ActiveMQ (Console)
 
 Port:			8161
 Type:			ActiveMQ (Console)
 
 
 
-#### Port -  8443
+#### Port - 8443
 
 Port:			8443
 Type:			HTTPS for Development, Tomcat
 
 
 
-#### Port -  9000, HTTP (Java Play Server, Jetty, Development)
+#### Port - 9000, HTTP (Java Play Server, Jetty, Development)
 
 Port:			9000
 Type:			HTTP (Java Play Server, Jetty, Development)
 
 
 
-#### Port -  9042, Cassandra - CQL native transport port
+#### Port - 9042, Cassandra - CQL native transport port
 
 Port:			9042
 Type:			Cassandra - CQL native transport port
 
 
 
-#### Port -  9160, Cassandra - Thrift client API
+#### Port - 9160, Cassandra - Thrift client API
 
 Port:			9160
 Type:			Cassandra - Thrift client API
 
 
 
-#### Port -  27017, Mongo DB - Default Port
+#### Port - 27017, Mongo DB - Default Port
 
 Port:			27017
 Type:			Mongo DB - Default Port
 
 
 
-#### Port -  27018, Mongo DB - Default Port - Clustered (shardsvr)
+#### Port - 27018, Mongo DB - Default Port - Clustered (shardsvr)
 
 Port:			27018
 Type:			Mongo DB - Default Port - Clustered (shardsvr)
 
 
 
-#### Port -  27019, Mongo DB - Default Port - Clustered (configsvr)
+#### Port - 27019, Mongo DB - Default Port - Clustered (configsvr)
 
 Port:			27019
 Type:			Mongo DB - Default Port - Clustered (configsvr)
 
 
 
-#### Port -  32400, Plex Server
+#### Port - 32400, Plex Server
 
 Port:			32400
 Type:			Plex Server
 
 
 
-#### Port -  61616, ActiveMQ - Message Port
+#### Port - 61616, ActiveMQ - Message Port
 
 Port:			61616
 Type:			ActiveMQ - Message Port
@@ -1545,6 +1594,10 @@ Example:
 
 ### DNS
 Domain Name System
+
+
+### FQDN
+Fully Qualified Domain Name
 
 
 ### FTP
